@@ -29,9 +29,14 @@ ament_target_dependencies(publisher_class ${dependencies})
 add_executable(subscriber src/subscriber.cpp)
 ament_target_dependencies(subscriber ${dependencies})
 
-
 add_executable(subscriber_class src/subscriber_class.cpp)
 ament_target_dependencies(subscriber_class ${dependencies})
+
+add_executable(logger_class src/logger_class.cpp)
+ament_target_dependencies(logger_class ${dependencies})
+
+add_executable(logger src/logger.cpp)
+ament_target_dependencies(logger ${dependencies})
 
 ##install
 install(TARGETS 
@@ -40,6 +45,8 @@ install(TARGETS
   publisher_class
   subscriber
   subscriber_class
+  logger
+  logger_class
   ARCHIVE DESTINATION lib 
   LIBRARY DESTINATION lib 
   RUNTIME DESTINATION lib/${PROJECT_NAME} 
