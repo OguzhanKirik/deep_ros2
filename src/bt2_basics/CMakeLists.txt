@@ -38,6 +38,9 @@ ament_target_dependencies(logger_class ${dependencies})
 add_executable(logger src/logger.cpp)
 ament_target_dependencies(logger ${dependencies})
 
+add_executable(param_reader src/param_reader.cpp)
+ament_target_dependencies(param_reader ${dependencies})
+
 ##install
 install(TARGETS 
   executors
@@ -47,12 +50,14 @@ install(TARGETS
   subscriber_class
   logger
   logger_class
+  param_reader
   ARCHIVE DESTINATION lib 
   LIBRARY DESTINATION lib 
   RUNTIME DESTINATION lib/${PROJECT_NAME} 
 )
 
 
+install(DIRECTORY launch config DESTINATION share/${PROJECT_NAME})
 
 
 if(BUILD_TESTING)
