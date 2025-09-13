@@ -16,8 +16,8 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument('rviz', default_value='true'),
-        DeclareLaunchArgument('slam', default_value='false'),   # or 'off'
-        DeclareLaunchArgument('nav2', default_value='false'),
+        DeclareLaunchArgument('slam', default_value='true'),   # or 'off'
+        DeclareLaunchArgument('nav2', default_value='true'),
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(tb4_launch),
