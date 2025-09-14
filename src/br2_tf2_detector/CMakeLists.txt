@@ -33,10 +33,10 @@ add_library(${PROJECT_NAME} SHARED
 )
 ament_target_dependencies(${PROJECT_NAME} ${dependencies})
 
+
 add_executable(detector src/detector_main.cpp)
 ament_target_dependencies(detector ${dependencies})
-target_link_libraries(${PROJECT_NAME})
-## OPTION: target_link_libraries(detector ${PROJECT_NAME} ${dependencies})
+target_link_libraries(detector ${PROJECT_NAME})
 
 
 ##install
