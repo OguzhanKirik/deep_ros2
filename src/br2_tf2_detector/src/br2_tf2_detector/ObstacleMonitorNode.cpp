@@ -27,7 +27,7 @@ namespace br2_tf2_detector{
         try{
             // frame to frame transform
             robot2obstacle = tf_buffer_.lookupTransform(
-                "base_footprint",
+                "base_link",
                 "detected_obstacle",
                 tf2::TimePointZero);
         }catch(tf2::TransformException& e){
@@ -46,7 +46,7 @@ namespace br2_tf2_detector{
             x, y, z, theta);
 
         visualization_msgs::msg::Marker obstacle_arrow;
-        obstacle_arrow.header.frame_id = "base_footprint";
+        obstacle_arrow.header.frame_id = "base_link";
         obstacle_arrow.header.stamp = now();
         obstacle_arrow.type = visualization_msgs::msg::Marker::ARROW;
         obstacle_arrow.action = visualization_msgs::msg::Marker::ADD;

@@ -15,9 +15,9 @@ def generate_launch_description():
     tb4_launch = os.path.join(tb4_pkg, 'launch', 'turtlebot4_ignition.launch.py')
 
     return LaunchDescription([
-        DeclareLaunchArgument('rviz', default_value='true'),
-        DeclareLaunchArgument('slam', default_value='true'),   # or 'off'
-        DeclareLaunchArgument('nav2', default_value='true'),
+        DeclareLaunchArgument('rviz', default_value='false'),
+        DeclareLaunchArgument('slam', default_value='false'),   # or 'off'
+        DeclareLaunchArgument('nav2', default_value='false'),
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(tb4_launch),

@@ -1,0 +1,4 @@
+robot:
+  platform: jackal
+  # keep it minimal for sim; add sensors later if needed
+  sensors: []

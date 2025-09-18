@@ -27,17 +27,22 @@ namespace br2_tf2_detector{
     void ObstacleDetectorNode::scan_callback(sensor_msgs::msg::LaserScan::UniquePtr msg){
 
         double dist = msg->ranges[msg->ranges.size() /2];
+        
+        geometry_msgs::msg::TransformStamped detection_tf;
+        detection_tf.header = msg->header;
+        detection_tf.child_frame_id = "detected_obstacle";
 
         if(!std::isinf(dist)){
-            geometry_msgs::msg::TransformStamped detection_tf;
-
-            detection_tf.header = msg->header;
-            detection_tf.child_frame_id = "detected_obstacle";
-            detection_tf.transform.translation.x = msg->ranges[msg->ranges.size() /2];
-
-            tf_broadcaster_->sendTransform(detection_tf);
+            // Real obstacle detected
+            detection_tf.transform.translation.x = dist;
+        } else {
+            // No obstacle, publish at max range for testing
+            detection_tf.transform.translation.x = msg->range_max;
         }
 
+        tf_broadcaster_->sendTransform(detection_tf);
     }
+
+    
 
 } // namaespace br2_tf2_detector
